@@ -27,18 +27,21 @@ function Puzzle() {
                     default:
                         b += this.type
                 }
-                b += " x:" + e(this.x) + " y:" + e(this.y);
+                b += " x:" + e(this.x)     + " y:" + e(this.y);
                 b += " v:" + e(this.value) + " s:" + e(this.solution);
                 b += " l:" + e(this.label) + " a:" + e(this.areas);
-                return b += " c:" + e(this.count) + " w:" +
-                    e(this.work)
+             
+                return b += " c:" + e(this.count) + " w:" + e(this.work)
             } catch (g) {
                 throw a.exception(g), g;
             }
         };
         this.reset = function() {
             try {
-                this.value = this.label = this.areas = this.solution = nil, this.color = this.clues = this.state = this.flags = 0, this.fixed = !1, this.valid = !0, this.error = this.count = 0, this.work = nil, this.checked = this.marked = !1, this.markers.clear()
+                this.value = this.label = this.areas = this.solution = nil,
+                 this.color = this.clues = this.state = this.flags = 0, this.fixed = !1,
+                 this.valid = !0, this.error = this.count = 0, this.work = nil,
+                 this.checked = this.marked = !1, this.markers.clear()
             } catch (f) {
                 throw a.exception(f), f;
             }
@@ -100,6 +103,7 @@ function Puzzle() {
         this.solution = "solution";
         this.exception = "exception";
         this.exceptionSent = this.timingSent = !1;
+     
         this.sendMail = function(b, c, d, e, f) {
             try {
                 if (a.config.mailScript) {
@@ -334,8 +338,7 @@ function Puzzle() {
         };
         this.generate = function() {
             if (this.mti >= this.N) {
-                var a;
-                for (a = 0; a < this.N - this.M; a++) {
+                for (var a = 0; a < this.N - this.M; a++) {
                     var b = this.mt[a] & this.UPPER_MASK | this.mt[a + 1] & this.LOWER_MASK;
                     this.mt[a] = this.mt[a + this.M] ^ b >>> 1 ^ this.mag01[b & 1]
                 }
@@ -494,44 +497,44 @@ function Puzzle() {
     a.labels = {
         north: 0,
         south: 0,
-        east: 0,
-        west: 0
+        east:  0,
+        west:  0
     };
     a.alist = [];
     a.rlist = [];
     a.item = {
-        cell: 1,
-        node: 2,
-        line: 4,
+        cell:    1,
+        node:    2,
+        line:    4,
         anyline: 7,
-        hline: 12,
-        vline: 20
+        hline:  12,
+        vline:  20
     };
     a.cell = {
-        min: 1,
-        max: 0,
+        min     : 1,
+        max     : 0,
         nilalias: nil,
-        values: null,
-        keys: null,
-        black: nil - 1,
-        outside: nil - 2,
-        label: nil - 3,
-        aside: nil - 4
+        values  : null,
+        keys    : null,
+        black   : nil - 1,
+        outside : nil - 2,
+        label   : nil - 3,
+        aside   : nil - 4
     };
     a.line = {
         nilalias: nil,
-        values: null,
-        keys: null,
-        grid: nil,
-        wall: 0,
-        cross: 1,
-        dotted: 2,
-        none: 3
+        values  : null,
+        keys    : null,
+        grid    : nil,
+        wall    : 0,
+        cross   : 1,
+        dotted  : 2,
+        none    : 3
     };
     a.node = {
         nilalias: nil,
-        values: null,
-        keys: null
+        values  : null,
+        keys    : null
     };
     a.marker = {
         symbolBase: 0,
